@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM python:3.7-alpine3.8
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -6,13 +6,10 @@ RUN apt-get -q update \
  && apt-get -q -y install curl
 
 # Install AWS CLI
-RUN apt-get -q -y install python2.7 \
- && curl -L https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
- && python2.7 get-pip.py \
+RUN curl -L https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
+ && python3 get-pip.py \
  && rm -f get-pip.py \
- && pip install --upgrade awscli
-
-RUN apt-get -q -y clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+ && pip install --upgrade awsclI
 
 #ENV AWS_ACCESS_KEY_ID abc
 #ENV AWS_SECRET_ACCESS_KEY def
