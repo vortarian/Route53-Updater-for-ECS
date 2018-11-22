@@ -2,7 +2,7 @@ FROM python:3.7-alpine3.8
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apk add --no-cache curl
+RUN apk add --no-cache curl bash
 
 # Install AWS CLI
 RUN curl -L https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
